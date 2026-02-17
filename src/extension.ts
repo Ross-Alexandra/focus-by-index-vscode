@@ -9,7 +9,7 @@ function convertTabsToQuickItem(tabs: vscode.Tab[]): vscode.QuickPickItem[] {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('index-file-picker.openIndex', () => {
+	const disposable = vscode.commands.registerCommand('focus-by-index.openIndex', () => {
 		const quickPick = vscode.window.createQuickPick();
 
 		quickPick.placeholder = 'Pick editor by index';
