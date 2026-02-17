@@ -3,6 +3,10 @@
   "displayName": "focus-by-index",
   "description": "Focus an open editor via its index in the editors list",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ross-Alexandra/focus-by-index-vscode.git"
+  },
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -31,6 +35,7 @@
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "build": "vsce package -o dist",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",

@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		});
 
-		quickPick.onDidAccept(() => handleAccept);
+		quickPick.onDidAccept(() => handleAccept());
 
 		quickPick.show();
 		quickPick.items = convertTabsToQuickItem(allItems);
