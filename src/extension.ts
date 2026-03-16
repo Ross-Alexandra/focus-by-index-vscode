@@ -94,6 +94,10 @@ function increasePathDepthToReduceDeepOverlaps(computedChunks: Record<string, Co
 	}, {});
 }
 
+function getPaddingIndex(index: number, fullLength: number) {
+	return (index + 1).toString().padStart(Math.trunc(fullLength / 10), '0');
+}
+
 function convertTabsToQuickItem(tabs: TabInputTextTab[]): vscode.QuickPickItem[] {
 	const tabFullPaths = tabs.map(tab => tab.input.uri.path);
 	let tabPathChunks = computeInitialPathOverlaps(tabFullPaths);
@@ -113,7 +117,7 @@ function convertTabsToQuickItem(tabs: TabInputTextTab[]): vscode.QuickPickItem[]
 	);
 
 	return tabs.map((tab, index) => ({
-		label: `${index + 1}${INDEX_SEPARATOR}${invertedChunks[tab.input.uri.path]}`,
+		label: `${getPaddingIndex(index, tabs.length)}${INDEX_SEPARATOR}${invertedChunks[tab.input.uri.path]}`,
 	}));
 }
 
